@@ -72,7 +72,7 @@ export default function Index() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 sm:py-28">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground">
-              Escalation Intelligence Engine
+              Intelligent Customer Escalation &amp; Resolution
             </span>
             <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight">
               Know when to <span className="text-solve">solve</span>.

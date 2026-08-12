@@ -12,6 +12,9 @@ import QueuePage from "./pages/Queue";
 import Workspace from "./pages/Workspace";
 import Audit from "./pages/Audit";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/workspace" element={<Workspace />} />
           <Route path="/workspace/:id" element={<Workspace />} />
           <Route path="/audit" element={<Audit />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

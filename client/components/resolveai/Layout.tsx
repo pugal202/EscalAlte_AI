@@ -1,7 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Activity, Inbox, ScrollText, Sparkles, Users } from "lucide-react";
+import { Activity, Inbox, ScrollText, Sparkles, Users, UserCircle2 } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { clearDemoRole } from "@/lib/demo-auth";
 
 const NAV = [
   { to: "/", label: "Overview", icon: Sparkles },
@@ -11,7 +13,7 @@ const NAV = [
   { to: "/audit", label: "Audit Log", icon: ScrollText },
 ];
 
-function EscalAIteLogo() {
+export function EscalAIteLogo() {
   return (
     <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/35 bg-primary/10 text-primary" aria-label="EscalAIte logo">
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -25,7 +27,9 @@ function EscalAIteLogo() {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [liveMode, setLiveMode] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -60,8 +64,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
             })}
           </nav>
 
-          <button
-            onClick={() => setLiveMode((v) => !v)}
+          <div className="relative flex items-center gap-2">
+            <button
+              onClick={() => setLiveMode((v) => !v)}
             title="Demo mode runs fully offline with deterministic scenario logic. Live AI requires a secure backend integration."
             className="flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-xs font-semibold"
           >
@@ -71,8 +76,38 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 liveMode ? "bg-solve" : "bg-adapt",
               )}
             />
-            {liveMode ? "LIVE AI MODE" : "DEMO MODE"}
-          </button>
+              {liveMode ? "LIVE AI MODE" : "DEMO MODE"}
+            </button>
+            <button
+              onClick={() => setProfileOpen((v) => !v)}
+              className="flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-2.5 py-1.5 text-xs font-semibold"
+              aria-expanded={profileOpen}
+              aria-label="Open profile menu"
+            >
+              <UserCircle2 className="h-4 w-4 text-primary" />
+              <span className="hidden sm:inline">Pugalarasi S</span>
+            </button>
+            {profileOpen && (
+              <div className="absolute right-0 top-11 z-50 w-52 rounded-xl border border-border bg-card p-2 shadow-xl">
+                <div className="border-b border-border px-3 py-2">
+                  <div className="font-semibold">Pugalarasi S</div>
+                  <div className="text-xs text-muted-foreground">Administrator</div>
+                </div>
+                <Link className="mt-1 block rounded-md px-3 py-2 text-sm hover:bg-secondary" to="/profile" onClick={() => setProfileOpen(false)}>Profile</Link>
+                <Link className="block rounded-md px-3 py-2 text-sm hover:bg-secondary" to="/settings" onClick={() => setProfileOpen(false)}>Settings</Link>
+                <button
+                  className="block w-full rounded-md px-3 py-2 text-left text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  onClick={() => {
+                    clearDemoRole();
+                    setProfileOpen(false);
+                    navigate("/login");
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         <nav className="flex md:hidden items-center gap-1 overflow-x-auto px-3 pb-2">
           {NAV.map((item) => {
