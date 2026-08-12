@@ -40,7 +40,7 @@ const SURFACES = [
   {
     to: "/demo",
     icon: Activity,
-    title: "Hackathon Demo",
+    title: "Demo",
     desc: "Watch a live case escalate from SOLVE to ADAPT to ESCALATE in real time, or jump between preset scenarios.",
   },
   {
@@ -82,15 +82,15 @@ export default function Index() {
               Know when to <span className="text-escalate">escalate</span>.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              ResolveAI is an AI-powered customer-resolution and escalation intelligence
-              platform. Most support AI is optimized to keep answering — ResolveAI is
+              EscalAIte is an AI-powered customer-resolution and escalation intelligence
+              platform. Most support AI is optimized to keep answering — EscalAIte is
               optimized to decide whether continuing with AI is actually the best decision
               for this customer right now.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Button asChild size="lg" className="gap-2">
                 <Link to="/demo">
-                  Launch Hackathon Demo <ArrowRight className="h-4 w-4" />
+                  Launch Demo <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
@@ -118,7 +118,7 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16">
           <h2 className="text-2xl font-bold text-center">The core resolution flow</h2>
           <p className="mt-2 text-center text-muted-foreground max-w-2xl mx-auto">
-            Every customer message runs through the full pipeline before ResolveAI ever
+            Every customer message runs through the full pipeline before EscalAIte ever
             hands off to a human.
           </p>
           <div className="mt-10 flex flex-wrap items-stretch justify-center gap-2">
@@ -143,7 +143,7 @@ export default function Index() {
           <div>
             <h2 className="text-2xl font-bold">Beyond sentiment: 11 escalation signals</h2>
             <p className="mt-3 text-muted-foreground">
-              ResolveAI evaluates eleven independent signals every time a customer message
+              EscalAIte evaluates eleven independent signals every time a customer message
               arrives, then calculates a single Escalation Risk score from 0–100.
             </p>
             <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
@@ -207,7 +207,7 @@ export default function Index() {
         <p className="text-xl sm:text-2xl font-medium leading-relaxed">
           Most customer-support AI is optimized to answer.
           <br />
-          <span className="text-primary">ResolveAI is optimized to resolve.</span>
+          <span className="text-primary">EscalAIte is optimized to resolve.</span>
         </p>
         <p className="mt-6 text-muted-foreground">
           When automation helps, it solves. When the current strategy fails, it adapts.

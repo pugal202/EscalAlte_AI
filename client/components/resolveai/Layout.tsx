@@ -1,15 +1,27 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Activity, Gauge, Inbox, ScrollText, Sparkles, Users } from "lucide-react";
+import { Activity, Inbox, ScrollText, Sparkles, Users } from "lucide-react";
 import { useState } from "react";
 
 const NAV = [
   { to: "/", label: "Overview", icon: Sparkles },
-  { to: "/demo", label: "Hackathon Demo", icon: Activity },
+  { to: "/demo", label: "Demo", icon: Activity },
   { to: "/queue", label: "Escalation Queue", icon: Inbox },
   { to: "/workspace", label: "Agent Workspace", icon: Users },
   { to: "/audit", label: "Audit Log", icon: ScrollText },
 ];
+
+function EscalAIteLogo() {
+  return (
+    <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/35 bg-primary/10 text-primary" aria-label="EscalAIte logo">
+      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+        <path d="M18.5 5H7.2a2.2 2.2 0 0 0-2.2 2.2v9.6A2.2 2.2 0 0 0 7.2 19h11.3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M5 12h8.4l2.4-3.1 2.3 1.9 2.1-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="m17.2 7.8 2.6-.1-.5 2.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -20,11 +32,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-violet-400">
-              <Gauge className="h-4.5 w-4.5 text-white" />
-            </span>
+            <EscalAIteLogo />
             <span className="text-lg font-bold tracking-tight">
-              Resolve<span className="text-primary">AI</span>
+              Escal<span className="text-primary">AI</span>te
             </span>
           </Link>
 
@@ -85,6 +95,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </nav>
       </header>
       <main>{children}</main>
+      <footer className="border-t border-border/70 px-4 py-5 text-center text-xs text-muted-foreground">
+        © 2026 EscalAIte · Built by Pugalarasi S
+      </footer>
     </div>
   );
 }

@@ -61,7 +61,7 @@ export default function Demo() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-2xl font-bold">Hackathon Demo</h1>
+            <h1 className="text-2xl font-bold">Demo</h1>
             <p className="text-muted-foreground text-sm mt-1">
               Watch a case move from SOLVE to ADAPT to ESCALATE, or jump straight to any
               preset scenario.
@@ -310,7 +310,7 @@ function ScenarioDetail({ scenario }: { scenario: Scenario }) {
       {/* Explainability */}
       <div className="rounded-xl border border-border bg-card p-5">
         <h3 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide">
-          Why did ResolveAI make this decision?
+          Why did EscalAIte make this decision?
         </h3>
         <div className="mt-4 space-y-2">
           {scenario.factors.map((f) => (
